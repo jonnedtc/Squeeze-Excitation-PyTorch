@@ -24,7 +24,7 @@ class SqEx(nn.Module):
         y = self.nonlin1(self.linear1(y))
         y = self.nonlin2(self.linear2(y))
         y = y.permute(0, 3, 1, 2)
-        y = x * y.view(y.size())
+        y = x * y
         return y
 
 # Residual block using Squeeze and Excitation
