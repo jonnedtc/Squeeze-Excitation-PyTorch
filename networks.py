@@ -12,9 +12,9 @@ class SqEx(nn.Module):
         if n_features % reduction != 0:
             raise ValueError('n_features must be divisible by reduction (default = 16)')
 
-        self.linear1 = nn.Linear(n_features, n_features // reduction, bias=False)
+        self.linear1 = nn.Linear(n_features, n_features // reduction, bias=True)
         self.nonlin1 = nn.ReLU(inplace=True)
-        self.linear2 = nn.Linear(n_features // reduction, n_features, bias=False)
+        self.linear2 = nn.Linear(n_features // reduction, n_features, bias=True)
         self.nonlin2 = nn.Sigmoid()
 
     def forward(self, x):
